@@ -14,18 +14,6 @@ $fetch_video = $Fun_call->select_order('videos', 'v_id', 'ASC');
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
   </head>
   <body>
-  <form action="" method ="post">
-                  <select name= "filterr">   
-                    <?php
-                      if($fetch_video){ 
-                        foreach($fetch_video as $video_data){
-                          echo "<option value='". $video_data['filter'] ."'>" .$video_data['filter'] ."</option>";
-                      }}
-                      $abc = $_POST['filterr'];
-                    ?>
-                  </select>
-                  <input type="submit" value="submit" name="submit">
-                </form>
     <table class="table table-hover">
         <thead class="thead-dark">
             <tr> 

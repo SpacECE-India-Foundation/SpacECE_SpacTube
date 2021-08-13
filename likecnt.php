@@ -24,7 +24,7 @@ $fetch_video = $Fun_call->select_order('videos', 'v_id', 'DESC');
     <?php
 
         include 'connection.php';
-        include 'connection1.php';
+        
         if(!empty($_GET['btn'])) 
         {
             $id = $_GET['btn'];

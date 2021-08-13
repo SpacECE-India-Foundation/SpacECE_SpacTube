@@ -4,7 +4,6 @@ require_once 'Config/Functions.php';
 $Fun_call = new Functions();
 
 $fetch_video = $Fun_call->select_order('videos', 'v_id', 'DESC');
-$trend_video = $Fun_call->select_order('videos', 'cntlike', 'DESC');
 ?>
 
 <!DOCTYPE html>
@@ -19,6 +18,8 @@ $trend_video = $Fun_call->select_order('videos', 'cntlike', 'DESC');
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script defer src="https://friconix.com/cdn/friconix.js"> </script>
     <link rel="stylesheet" href="Stylesheet/stylesheet.css">
+    <img src="spacece_logo.jpeg" style="justify-content: center; padding-left: 30%; height: 175px; width: 1000px">
+    <br><br>
     <style>
 .topright {
   position: absolute;
@@ -56,10 +57,24 @@ $trend_video = $Fun_call->select_order('videos', 'cntlike', 'DESC');
                     <div class="nav-link heading">SpacTube</div>
                 </li>
             </ul>
+            <!-- <a href="view.php"> -->
+            <button name = "free" class="btn-btn"><h6>Already in Free Section</h6></button>
+            <!-- </a> -->
             <a href="view1.php">
                 <button name = "paid" class="btn-btn"><h6>Go to Paid Section</h6></button>
             </a>
-            
+            <a href="trending.php">
+                <button name = "trending" class="btn-btn"><h6>Trending Videos</h6></button>
+            </a>
+            <a href="https://www.spacece.co/about-us" target="_blank">
+                <button name = "about" class="btn-btn"><h6>About Us</h6></button>
+            </a>
+            <a href="http://api.whatsapp.com/send?phone=9096305648" target="_blank">
+                <button name = "contact" class="btn-btn"><h6>Contact Us</h6></button>
+            </a>
+            <!-- <a href="recents.php">
+                <button name = "recent" class="btn-btn"><h6>Recently Watched</h6></button>
+            </a> -->
         </div>
         
     
@@ -74,11 +89,12 @@ $trend_video = $Fun_call->select_order('videos', 'cntlike', 'DESC');
                         </li>
                     </ul>
                 </div>
-
+                <br>
                 <form action="" method ="post">
                   <select name= "filterr">  
                         <option value="all" selected>ALL</option> 
                     <?php
+                        $abc = "all";
                       if($fetch_video){ 
                         foreach($fetch_video as $video_data){
                           echo "<option value='". $video_data['filter'] ."'>" .$video_data['filter'] ."</option>";
@@ -86,12 +102,13 @@ $trend_video = $Fun_call->select_order('videos', 'cntlike', 'DESC');
                       $abc = $_POST['filterr'];
                     ?>
                   </select>
-                  <input type="submit" value="submit" name="submit">
+                  <input type="Submit" value="Submit" name="Submit">
                 </form>
-
+                    <br><br>
                 <div class="row row-cols-1 row-cols-md-3">
-                    <?php if($fetch_video){ foreach($fetch_video as $video_data){ 
-                        if($abc == "all")
+                    <?php
+                    if($fetch_video){ foreach($fetch_video as $video_data){ 
+                        if($abc == "all" || $abc == NULL)
                         {
                             if($video_data['status'] ==  "free")
                             {
@@ -113,10 +130,10 @@ $trend_video = $Fun_call->select_order('videos', 'cntlike', 'DESC');
                                             
                                         </a>
                                         <?php echo $video_data['cntdislike']; ?>
-                                        <button name="share" class = "btn"><a href="whatsapp://send?text=Check out this video : https://www.youtube.com/watch?v=<?php echo $video_data['v_url']; ?>" data-action="share/whatsapp/share" target="_blank"><img src="whatsapp logo.png" style="justify-content: center; padding-left: 30%; height: 15px; width: 25px"></a></button>
-                                        <a href="comment.php">
+                                        <button name="share" class = "btn"><a href="whatsapp://send?text=<?php echo "*SpacTube - Video Gallery on Child Education* %0a %0aI am sharing one important video on Child Education.%0ahttps://www.youtube.com/watch?v=". $video_data['v_url'] . " %0a %0aYou can also subscribe to SpacTube by clicking on the following.%0ahttps://www.spacece.co/offerings/spactube %0a %0aThanks and Regards, %0aSpacECE India Foundation %0a %0awww.spacece.co %0awww.spacece.in %0a"; ?>" data-action="share/whatsapp/share" target="_blank"><img src="whatsapp logo.png" style="justify-content: center; padding-left: 30%; height: 15px; width: 25px"></a></button>
+                                        <!-- <a href="comment.php">
                                             <button name="comment" class="btn"><img src="comments.png" style="justify-content: center; padding-left: 30%; height: 20px; width: 35px"></button>
-                                        </a>
+                                        </a> -->
                                     </div>
                                     </div>
                                 </div>    
@@ -142,10 +159,10 @@ $trend_video = $Fun_call->select_order('videos', 'cntlike', 'DESC');
                                 
                             </a>
                             <?php echo $video_data['cntdislike']; ?>
-                            <button name="share" class = "btn"><a href="whatsapp://send?text=Check out this video : https://www.youtube.com/watch?v=<?php echo $video_data['v_url']; ?>" data-action="share/whatsapp/share" target="_blank"><img src="whatsapp logo.png" style="justify-content: center; padding-left: 30%; height: 15px; width: 25px"></a></button>
-                            <a href="comment.php">
+                            <button name="share" class = "btn"><a href="whatsapp://send?text=<?php echo "*SpacTube - Video Gallery on Child Education* %0a %0aI am sharing one important video on Child Education.%0ahttps://www.youtube.com/watch?v=". $video_data['v_url'] . " %0a %0aYou can also subscribe to SpacTube by clicking on the following.%0ahttps://www.spacece.co/offerings/spactube %0a %0aThanks and Regards, %0aSpacECE India Foundation %0a %0awww.spacece.co %0awww.spacece.in %0a"; ?>" data-action="share/whatsapp/share" target="_blank"><img src="whatsapp logo.png" style="justify-content: center; padding-left: 30%; height: 15px; width: 25px"></a></button>
+                            <!-- <a href="comment.php">
                                 <button name="comment" class="btn"><img src="comments.png" style="justify-content: center; padding-left: 30%; height: 20px; width: 35px"></button>
-                            </a>
+                            </a> -->
                           </div>
                         </div>
                     </div>    
@@ -168,56 +185,7 @@ $trend_video = $Fun_call->select_order('videos', 'cntlike', 'DESC');
         </div>
 
     </div>
-        
-        <div class="container">
-            <div class="ins-box">
-                <div class="container">
-                    <ul class="nav justify-content-center bg-dark">
-                        <li class="nav-item">
-                            <div class="nav-link heading">Trending Videos</div>
-                        </li>
-                    </ul>
-                </div>
-                <div class = "box">
-                <div class="row row-1 row-col-md-4">
-                    <?php 
-                    $i = 0;
-                    if($trend_video){ foreach($trend_video as $video_data){ 
-                            if($i < 5)
-                            {
-                                $i++;
-                                ?>
-                                <div class="col mb-4">
-                                    <div class="card h-100">
-                                    <div class="set-box youtube-video-r">
-                                        <iframe width="400" height="200" src="https://www.youtube.com/embed/<?php echo $video_data['v_url']; ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                    </div>
-                                    <!-- <div class="card-body pt-2 pb-2">
-                                        <h6 class="card-title"><?php //echo $video_data['v_date']; ?></h6>
-                                        <a href="likecnt.php?btn=<?php// echo $video_data['v_id'] ?>">
-                                            <button name="likecnt" class ="btn"><img src="like.png" style="justify-content: center; padding-left: 30%; height: 15px; width: 25px"></button>
-                                            
-                                        </a>
-                                        <?php //echo $video_data['cntlike']; ?>
-                                        <a href="likecnt.php?btn1=<?php// echo $video_data['v_id'] ?>">
-                                            <button name="dislikecnt" class = "btn"><img src="dislike.png" style="justify-content: center; padding-left: 30%; height: 15px; width: 30px"></button>
-                                            
-                                        </a>
-                                        <?php// echo $video_data['cntdislike']; ?>
-                                        <button name="share" class = "btn"><a href="whatsapp://send?text=Check out this video : https://www.youtube.com/watch?v=<?php echo $video_data['v_url']; ?>" data-action="share/whatsapp/share" target="_blank"><img src="whatsapp logo.png" style="justify-content: center; padding-left: 30%; height: 15px; width: 25px"></a></button>
-                                        <a href="comment.php">
-                                            <button name="comment" class="btn"><img src="comments.png" style="justify-content: center; padding-left: 30%; height: 20px; width: 35px"></button>
-                                        </a>
-                                    </div> -->
-                                    </div>
-                                </div>    
-                                <?php
-                            }}
-                        }?>
-                        </div>
-                </div>
-            </div>
-        </div>
+       
 
 
 

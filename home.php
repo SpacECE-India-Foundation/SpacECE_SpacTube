@@ -14,6 +14,7 @@
     <script defer src="https://friconix.com/cdn/friconix.js"> </script>
     <link rel="stylesheet" href="Stylesheet/stylesheet.css">
     <img src="spacece_logo.jpeg" style="justify-content: center; padding-left: 30%; height: 175px; width: 1000px">
+    <br><br>
     <style>
 .topright {
   position: absolute;
@@ -27,13 +28,13 @@
 <body>
 
     <div class="container" style="background-color: white">
-        <div class="container" style="background-color: white">
+        <!-- <div class="container" style="background-color: white">
             <ul class="nav justify-content-center background-color-white" >
                 <li class="nav-item">
                     <h1 style="color: orange; background-color: white">SpacTube</h1>
                 </li>
             </ul>
-        </div>
+        </div> -->
         
         <div class="topright" >
             <a href="logout.php">
@@ -47,6 +48,37 @@
             </a> -->
         </div>
         
+        <div class="container">
+            <ul class="nav justify-content-center bg-dark">
+                <li class="nav-item">
+                    <div class="nav-link heading">SpacTube</div>
+                </li>
+            </ul>
+            <a href="view.php">
+                <button name = "free" class="btn-btn"><h6>Go to Free Section</h6></button>
+            </a>
+            <a href="view1.php">
+                <button name = "paid" class="btn-btn"><h6>Go to Paid Section</h6></button>
+            </a>
+            <a href="trending.php">
+                <button name = "trending" class="btn-btn"><h6>Trending Videos</h6></button>
+            </a>
+            <a href="https://www.spacece.co/about-us" target="_blank">
+                <button name = "about" class="btn-btn"><h6>About Us</h6></button>
+            </a>
+            <a href="http://api.whatsapp.com/send?phone=9096305648" target="_blank">
+                <button name = "contact" class="btn-btn"><h6>Contact Us</h6></button>
+            </a>
+            <a href="user.php">
+                <button name = "upload" class="btn-btn"><h6>Upload Video</h6></button>
+            </a>
+            <a href="user1.php">
+                <button name = "remove" class="btn-btn"><h6>Remove Video</h6></button>
+            </a>
+            <!-- <a href="recents.php">
+                <button name = "recent" class="btn-btn"><h6>Recently Watched</h6></button>
+            </a> -->
+        </div>
 
         <div class="container">
             <div class="ins-box" id="load_videos">

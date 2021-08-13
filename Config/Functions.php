@@ -66,24 +66,6 @@ class Functions{
 
     }
 
-    public function selected_order($tbl_name, $field_id, $order='ASC', $which_field ,$video_has_filters){
-
-        $select = "SELECT * FROM $tbl_name ORDER BY $field_id $order WHERE $which_field = $video_has_filters";
-        $query = mysqli_query($this->conn, $select);
-        if(mysqli_num_rows($query) > 0){
-            $select_fetch = mysqli_fetch_all($query, MYSQLI_ASSOC);
-            if($select_fetch){
-                return $select_fetch;
-            }
-            else{
-                return false;
-            }
-        }
-        else{
-            return false;
-        }
-
-    }
 
     public function select_order_where($tbl_name, $condition, $field_id, $op='AND', $order='ASC'){
 
@@ -186,6 +168,9 @@ class Functions{
         
 
 }
+
+
+
 
 
 
