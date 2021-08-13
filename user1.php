@@ -13,7 +13,7 @@ $fetch_video = $Fun_call->select_order('videos', 'v_id', 'DESC');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>SpacECE Youtube Gallery</title>
+    <title>SpacTube</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script defer src="https://friconix.com/cdn/friconix.js"> </script>
@@ -34,7 +34,7 @@ $fetch_video = $Fun_call->select_order('videos', 'v_id', 'DESC');
     <!-- <div class="container" style="background-color: white">
         <ul class="nav justify-content-center background-color-white" >
             <li class="nav-item">
-                <h1 style="color: orange; background-color: white">SPACECE Video Gallery</h1>
+                <h1 style="color: orange; background-color: white">SpacTube</h1>
             </li>
         </ul>
     </div> -->
