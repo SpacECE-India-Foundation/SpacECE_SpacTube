@@ -21,7 +21,9 @@ $trend_video = $Fun_call->select_order('videos', 'cntlike', 'DESC');
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script defer src="https://friconix.com/cdn/friconix.js"> </script>
     <link rel="stylesheet" href="Stylesheet/stylesheet.css">
-    <img src="spacece_logo.jpeg" style="justify-content: center; padding-left: 30%; height: 175px; width: 1000px">
+    <center>
+    	<img src="spacece_logo.jpeg" style="align: center; justify-content: center; width: 50%; height: auto ">
+    </center>
     <br><br>
     <style>
 .topright {

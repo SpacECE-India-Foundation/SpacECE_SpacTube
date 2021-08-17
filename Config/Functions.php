@@ -3,8 +3,8 @@
 class Functions{
 
     private $DBHOST = 'localhost';
-    private $DBUSER = 'root';
-    private $DBPASS = '';
+private $DBUSER = 'ostechnix';
+private $DBPASS = 'Password123#@!';
     private $DBNAME = 'gallery2';
     public $conn;
 
@@ -168,11 +168,6 @@ class Functions{
         
 
 }
-
-
-
-
-
 
 
 ?>

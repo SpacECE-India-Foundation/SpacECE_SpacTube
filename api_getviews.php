@@ -16,7 +16,7 @@ include 'connection.php';
         //checking whether query is excuted or not
         if($res){
             // count that data is there or not in database
-            $count = mysqli_num_rows($res);
+            $count= mysqli_num_rows($res);
             if($count>0){
                 // we have data in database
                 while($row = mysqli_fetch_assoc($res))

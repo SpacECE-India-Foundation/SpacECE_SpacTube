@@ -1,37 +1,22 @@
-<?php  // this is serverside page === api key
- include 'connection.php';
-	if($_GET["pagenum"])
- 	{
-		$pagenum =$_GET["pagenum"];
-	}
-	else
-	{
-		$pagenum = 1;
-	}
+<?php  // this is serverside page === api key?>
+<?php $DBHOST = 'localhost';
+$DBUSER = 'ostechnix';
+$DBPASS = 'Password123#@!';
+$DBNAME = 'gallery2';
+$conn;
 
-	if($_GET["pagelen"])
- 	{
-		$pagelen = $_GET["pagelen"];
-	}
-	else
-	{
-		$pagelen = 10;//default pagelenght is 10
-	}
+$conn = mysqli_connect($DBHOST, $DBUSER, $DBPASS, $DBNAME);
+?>
 
- $offset = $pagelen*($pagenum);
-
-//echo 'pagelen<br> ' . htmlspecialchars($_GET["pagelen"]) . '!';
-
-        // showing admin added from database
-        $sql= "SELECT * 
-	FROM `videos`
-	WHERE `status`='free'
-        ORDER BY `v_id`
-        Limit $pagelen,$offset";
-
+<?php
+       
+        $sql= "SELECT *
+        FROM `videos`
+        ORDER BY `views` DESC
+        Limit 5";
         $res = mysqli_query($conn,$sql);
         header('Content-Type:application/json');   // connecting to database
-
+        header('Acess-Control-Allow-Origin: *');
 
         //checking whether query is excuted or not
         if($res){
@@ -42,6 +27,7 @@
                 while($row = mysqli_fetch_assoc($res))
                 {
                     
+
                     $arr[] = $row;   // making array of data
                  
                 }

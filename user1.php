@@ -13,12 +13,15 @@ $fetch_video = $Fun_call->select_order('videos', 'v_id', 'DESC');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>SpacECE Youtube Gallery</title>
+    <title>SpacTube</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script defer src="https://friconix.com/cdn/friconix.js"> </script>
     <link rel="stylesheet" href="Stylesheet/stylesheet.css">
-    <img src="spacece_logo.jpeg" style="justify-content: center; padding-left: 30%; height: 175px; width: 1000px">
+    <center>
+    	<img src="spacece_logo.jpeg" style="align: center; justify-content: center; width: 50%; height: auto ">
+    </center>
+
     <br><br>
     <style>
 .topright {
@@ -34,7 +37,7 @@ $fetch_video = $Fun_call->select_order('videos', 'v_id', 'DESC');
     <!-- <div class="container" style="background-color: white">
         <ul class="nav justify-content-center background-color-white" >
             <li class="nav-item">
-                <h1 style="color: orange; background-color: white">SPACECE Video Gallery</h1>
+                <h1 style="color: orange; background-color: white">SpacTube</h1>
             </li>
         </ul>
     </div> -->
@@ -70,7 +73,7 @@ $fetch_video = $Fun_call->select_order('videos', 'v_id', 'DESC');
             <a href="https://www.spacece.co/about-us" target="_blank">
                 <button name = "about" class="btn-btn"><h6>About Us</h6></button>
             </a>
-            <a href="http://api.whatsapp.com/send?phone=9096305648" target="_blank">
+            <a href="http://api.whatsapp.com/send?phone=+919096305648" target="_blank">
                 <button name = "contact" class="btn-btn"><h6>Contact Us</h6></button>
             </a>
             <!-- <a href="user.php">

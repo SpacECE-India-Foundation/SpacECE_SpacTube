@@ -1,16 +1,13 @@
 <?php  // this is serverside page === api key
-include("connection.php")
-
- $vid =$_GET["vid"];
- $uid =$_GET["uid"];
-//echo 'pagelen<br> ' . htmlspecialchars($_GET["pagelen"]) . '!';
+ include 'connection.php';
 
         // showing admin added from database
-       // $sql = "SELECT * FROM `videos`";
-        $sql= "SELECT *
-        FROM `tbl_like`
-        WHERE `u_id`='$uid' and `v_id`='$vid'
-        ORDER BY `v_id`";
+        $sql= "SELECT * 
+	FROM `videos`
+	WHERE `status`='created'
+        ORDER BY `v_id`
+        Limit 200";
+
         $res = mysqli_query($conn,$sql);
         header('Content-Type:application/json');   // connecting to database
 
@@ -23,13 +20,7 @@ include("connection.php")
                 // we have data in database
                 while($row = mysqli_fetch_assoc($res))
                 {
-                    // extracting values from dATABASE
-
-                   /* $id=$row['v_id'];
-                    $url=$row['v_url'];
-                    $name=$row['title'];
-                    $vedio_length=$row['length'];*/  // no need 
-
+                    
                     $arr[] = $row;   // making array of data
                  
                 }

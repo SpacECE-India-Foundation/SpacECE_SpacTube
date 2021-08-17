@@ -1,16 +1,43 @@
 <?php  // this is serverside page === api key?>
 <?php
 
-include 'connection.php';
+$DBHOST = 'localhost';
+$DBUSER = 'ostechnix';
+$DBPASS = 'Password123#@!';
+$DBNAME = 'gallery2';
+$conn;
+
+$conn = mysqli_connect($DBHOST, $DBUSER, $DBPASS, $DBNAME);
+
+if($conn)
+{
+    ?>
+    
+    <?php
+}
+else{
+    die("No Connection!");
+    ?>
+    <script>alert("Could Not Connection!")</script>
+   <?php
+}
+
+?>
+<?php
  $vid =$_GET["vid"];
  $uid =$_GET["uid"];
+//echo 'pagelen<br> ' . htmlspecialchars($_GET["pagelen"]) . '!';
+?>
+<?php
+        // showing admin added from database
+       // $sql = "SELECT * FROM `videos`";
         $sql= "SELECT *
-        FROM `tbl_comments`
-        WHERE `u_no`='$uid' and `v_id`='$vid'
+        FROM `tbl_like`
+        WHERE `u_id`='$uid' and `v_id`='$vid'
         ORDER BY `v_id`";
         $res = mysqli_query($conn,$sql);
         header('Content-Type:application/json');   // connecting to database
-
+        header('Acess-Control-Allow-Origin: *');
 
         //checking whether query is excuted or not
         if($res){
@@ -20,7 +47,13 @@ include 'connection.php';
                 // we have data in database
                 while($row = mysqli_fetch_assoc($res))
                 {
-                    
+                    // extracting values from dATABASE
+
+                   /* $id=$row['v_id'];
+                    $url=$row['v_url'];
+                    $name=$row['title'];
+                    $vedio_length=$row['length'];*/  // no need 
+
                     $arr[] = $row;   // making array of data
                  
                 }

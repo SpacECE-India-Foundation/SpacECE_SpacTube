@@ -11,12 +11,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>SpacECE Youtube Gallery</title>
+    <title>SpacTube</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script defer src="https://friconix.com/cdn/friconix.js"> </script>
     <link rel="stylesheet" href="Stylesheet/stylesheet.css">
-    <img src="spacece_logo.jpeg" style="justify-content: center; padding-left: 30%; height: 175px; width: 1000px">
+    <center>
+    	<img src="spacece_logo.jpeg" style="align: center; justify-content: center; width: 50%; height: auto ">
+    </center>
     <br><br>
     <style>
 .topright {
@@ -32,7 +34,7 @@
         <div class="container" style="background-color: white">
             <ul class="nav justify-content-center background-color-white" >
                 <li class="nav-item">
-                    <h1 style="color: orange; background-color: white">SPACECE Video Gallery</h1>
+                    <h1 style="color: orange; background-color: white">SpacTube</h1>
                 </li>
             </ul>
         </div> -->
@@ -67,7 +69,7 @@
             <a href="https://www.spacece.co/about-us" target="_blank">
                 <button name = "about" class="btn-btn"><h6>About Us</h6></button>
             </a>
-            <a href="http://api.whatsapp.com/send?phone=9096305648" target="_blank">
+            <a href="http://api.whatsapp.com/send?phone=+919096305648" target="_blank">
                 <button name = "contact" class="btn-btn"><h6>Contact Us</h6></button>
             </a>
             <!-- <a href="user.php">
@@ -109,18 +111,8 @@
                         <div class="form-group col-sm-12 col-lg-6 mb-0">
                             <input type="text" class="form-control" name="length" placeholder="Enter Video Length">
                         </div>
-                        <div class="form-group col-sm-12 mb-0">
-                            <br><br><br>
-                            <p>
-                                Select type filter: 
-                                <select name="filter">
-                                <option value="">Select...</option>
-                                <option value="children">Children</option>
-                                <option value="r_rated">R rated</option>
-                                <option value="music">Music</option>
-                                <option value="technology">Technical</option>
-                                </select>
-                            </p>
+			<div class="form-group col-sm-12 col-lg-6 mb-0">
+                            <input type="text" class="form-control" name="filter" placeholder="Enter Video Filter">
                         </div>
                         <div class="form-group col-sm-12 mb-0">
                             <br>
@@ -186,7 +178,7 @@
                 $video_length = $_POST['length'];
                 $video_filter = $_POST['filter'];
 
-                $insertquery = "INSERT into `videos`(`v_id`, `v_url`, `v_date`, `v_uni_no`, `status`, `filter`, `title`, `desc`, `length`) values ('$video_id', '$video_url', '$video_date', '$video_unique', '$video_status', '$video_filter', '$video_title', '$video_desc', '$video_length')";
+                $insertquery = "INSERT into `videos`(`v_id`, `v_url`, `v_date`, `v_uni_no`, `status`, `filter`, `title`, `desc`, `length`, `cntlike`, `cntdislike`, `views`, `cntcomment`) values ('$video_id', '$url', '$video_date', '$video_unique', '$video_status', '$video_filter', '$video_title', '$video_desc', '$video_length',0,0,0,0)";
                 
                 // echo $insertquery;
 

@@ -4,6 +4,7 @@ include 'connection.php';
         $sql = "SELECT * FROM `videos`";
         $res = mysqli_query($conn,$sql);
         header('Content-Type:application/json');
+	header('Acess-Control-Allow-Origin: *');
 
 
         //checking whether query is excuted or not
