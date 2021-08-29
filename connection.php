@@ -1,8 +1,8 @@
 <?php
 
 $DBHOST = 'localhost';
-$DBUSER = 'ostechnix';
-$DBPASS = 'Password123#@!';
+$DBUSER = 'root';
+$DBPASS = '';
 $DBNAME = 'gallery2';
 $conn;
 

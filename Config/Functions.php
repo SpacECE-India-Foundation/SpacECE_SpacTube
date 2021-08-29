@@ -3,8 +3,8 @@
 class Functions{
 
     private $DBHOST = 'localhost';
-private $DBUSER = 'ostechnix';
-private $DBPASS = 'Password123#@!';
+private $DBUSER = 'root';
+private $DBPASS = '';
     private $DBNAME = 'gallery2';
     public $conn;
 
@@ -45,7 +45,28 @@ private $DBPASS = 'Password123#@!';
             return false;
         }
 
+
     }
+    
+    public function selected_order($tbl_name, $field_id){
+
+        $select = "SELECT DISTINCT $field_id FROM $tbl_name";
+        $query = mysqli_query($this->conn, $select);
+        if(mysqli_num_rows($query) > 0){
+            $select_fetch = mysqli_fetch_all($query, MYSQLI_ASSOC);
+            if($select_fetch){
+                return $select_fetch;
+            }
+            else{
+                return false;
+            }
+        }
+        else{
+            return false;
+        }
+
+    }
+
 
     public function select_order($tbl_name, $field_id, $order='ASC'){
 

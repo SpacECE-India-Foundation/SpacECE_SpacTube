@@ -17,7 +17,7 @@ $conn = mysqli_connect($DBHOST, $DBUSER, $DBPASS, $DBNAME);
 <?php
 if($type == "all"){
 
-    if($_GET["pagenum"])
+    if(isset($_GET["pagenum"]))
  	{
 		$pagenum =$_GET["pagenum"];
 	}
@@ -26,7 +26,7 @@ if($type == "all"){
 		$pagenum = 1;
 	}
 
-	if($_GET["pagelen"])
+	if(isset($_GET["pagelen"]))
  	{
 		$pagelen = $_GET["pagelen"];
 	}

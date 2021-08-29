@@ -4,6 +4,7 @@ require_once 'Config/Functions.php';
 $Fun_call = new Functions();
 
 $fetch_video = $Fun_call->select_order('videos', 'v_id', 'DESC');
+$get_video = $Fun_call->selected_order('videos', 'filter');
 
 ?>
 
@@ -19,28 +20,33 @@ $fetch_video = $Fun_call->select_order('videos', 'v_id', 'DESC');
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script defer src="https://friconix.com/cdn/friconix.js"> </script>
     <link rel="stylesheet" href="Stylesheet/stylesheet.css">
-    <center>
-    	<img src="spacece_logo.jpeg" style="align: center; justify-content: center; width: 50%; height: auto ">
-    </center>
-    <br><br>
+    <img align="left"  src="Space_ECE_logo.png" style="width: 60px; height: auto ">
+    <h5 style="padding:12px;">&nbspSPACE For ECE</h5>
+    <br>
     <style>
+        <?php
+       include 'Stylesheet/stylesheet.css'; 
+       ?>
 .topright {
   position: absolute;
   top: 8px;
   right: 16px;
   font-size: 18px;
 }
+
 .left{
     left: 0px;
 }
 </style>
 </head>
 
-<body>
+<body style="background-color:#ffffff";>
         <div class="topright" >
-            <a href="logout.php">
-                <button type="button">Logout</button>
-            </a>
+            <!-- <a href="logout.php"> -->
+            <button onclick="window.open('logout.php', '_self')" type="button" style="background-color:black;color:white;border-radius:10px;">Logout</button>
+            <!-- </a> -->
+            <button onclick="window.open('https:/www.instamojo.com/@spacece/l3a3b190992504d639f4fb6fc9bfc40fe/', '_self')" type="button" style="color:white; background-color:black;border-radius: 10px;">Subscribe</button>
+            <script src="https://js.instamojo.com/v1/button.js"></script>
             <!-- <a href="user.php">
                 <button type="button">Upload Video</button>
             </a>
@@ -52,29 +58,7 @@ $fetch_video = $Fun_call->select_order('videos', 'v_id', 'DESC');
     <div class="container-fluid">
 
         <div class="container">
-            <ul class="nav justify-content-center bg-dark">
-                <li class="nav-item">
-                    <div class="nav-link heading">SpacTube</div>
-                </li>
-            </ul>
-            <a href="view.php">
-                <button name = "free" class="btn-btn"><h6>Go to Free Section</h6></button>
-            </a>
-            <!-- <a href="view1.php"> -->
-                <button name = "paid" class="btn-btn"><h6>Already in Paid Section</h6></button>
-            <!-- </a> -->
-            <a href="trending.php">
-                <button name = "trending" class="btn-btn"><h6>Trending Videos</h6></button>
-            </a>
-            <a href="https://www.spacece.co/about-us" target="_blank">
-                <button name = "about" class="btn-btn"><h6>About Us</h6></button>
-            </a>
-            <a href="http://api.whatsapp.com/send?phone=+919096305648" target="_blank">
-                <button name = "contact" class="btn-btn"><h6>Contact Us</h6></button>
-            </a>
-            <!-- <a href="recents.php">
-                <button name = "recent" class="btn-btn"><h6>Recently Watched</h6></button>
-            </a> -->
+            <?php include 'menu.php'; ?>
         </div>
         
     
@@ -95,8 +79,8 @@ $fetch_video = $Fun_call->select_order('videos', 'v_id', 'DESC');
                   <select name= "filterr">   
                       <option value="all" selected>ALL</option>
                     <?php
-                      if($fetch_video){ 
-                        foreach($fetch_video as $video_data){
+                      if($get_video){ 
+                        foreach($get_video as $video_data){
                           echo "<option value='". $video_data['filter'] ."'>" .$video_data['filter'] ."</option>";
                       }}
                       $abc = $_POST['filterr'];
@@ -118,21 +102,7 @@ $fetch_video = $Fun_call->select_order('videos', 'v_id', 'DESC');
                                         <iframe width="560" height="315" src="https://www.youtube.com/embed/<?php echo $video_data['v_url']; ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                     </div>
                                     <div class="card-body pt-2 pb-2">
-                                        <h6 class="card-title"><?php echo $video_data['v_date']; ?></h6>
-                                        <a href="likecnt.php?btn=<?php echo $video_data['v_id'] ?>">
-                                            <button name="likecnt" class ="btn"><img src="like.png" style="justify-content: center; padding-left: 30%; height: 15px; width: 25px"></button>
-                                            
-                                        </a>
-                                        <?php echo $video_data['cntlike']; ?>
-                                        <a href="likecnt.php?btn1=<?php echo $video_data['v_id'] ?>">
-                                            <button name="dislikecnt" class = "btn"><img src="dislike.png" style="justify-content: center; padding-left: 30%; height: 15px; width: 30px"></button>
-                                            
-                                        </a>
-                                        <?php echo $video_data['cntdislike']; ?>
-                                        <button name="share" class = "btn"><a href="whatsapp://send?text=<?php echo "*SpacTube - Video Gallery on Child Education* %0a %0aI am sharing one important video on Child Education.%0ahttps://www.youtube.com/watch?v=". $video_data['v_url'] . " %0a %0aYou can also subscribe to SpacTube by clicking on the following.%0ahttps://www.spacece.co/offerings/spactube %0a %0aThanks and Regards, %0aSpacECE India Foundation %0a %0awww.spacece.co %0awww.spacece.in %0a"; ?>" data-action="share/whatsapp/share" target="_blank"><img src="whatsapp logo.png" style="justify-content: center; padding-left: 30%; height: 15px; width: 25px"></a></button>
-                                        <!-- <a href="comment.php">
-                                            <button name="comment" class="btn"><img src="comments.png" style="justify-content: center; padding-left: 30%; height: 20px; width: 35px"></button>
-                                        </a> -->
+                                        <?php include 'options.php'; ?>
                                     </div>
                                     </div>
                                 </div>    
@@ -180,7 +150,7 @@ $fetch_video = $Fun_call->select_order('videos', 'v_id', 'DESC');
                     <button type="button">Remove Video</button>
                 </a>
     </div> -->
-
+    <?php include 'footer.php'; ?>
  
 
 
